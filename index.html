@@ -7,6 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css1/style.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="css1/jqui-lightness/jquery-ui-1.8.18.custom.css" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<style type="text/css">
 		#svg{
 			cursor: crosshair;
@@ -935,82 +937,86 @@ function Display(windowN, hasWindowReceiver){
 
 <body onload="init();" class="mobile">
 	<h1><center><font face="Chalkduster">Selective Repeat | Go Back N</font></center></h1>
-	<form class="config">
-		<h2>CONFIGURATION</h2>
-		<div class="form-item disable">
-			<h3>Protocol</h3>
-				<label><input id="method-0" type="radio" value="gbn" name="method" onchange="contr.setMethod();" checked="checked" /> Go back N</label>
-				<label><input id="method-1" type="radio" value="sr" name="method" onchange="contr.setMethod();" /> Selective Repeat</label>
-			<div class="description">choosing a new protocol restarts the simulation</div>
-		</div>
-		<div class="form-item disable">
-			<h3><label for="senderN">Window Size</label></h3>
-			<input type="range" name="senderN" value="5" min="1" max="10" step="1" id="senderN" onchange="contr.setSenderN(this); $('#senderN2').attr('value', this.value);" />
-			<input type="text" value="5" min="1" max="10" step="1" id="senderN2" onchange="contr.setSenderN(this);" disabled="disabled" />
-			<div class="description">sets the window size for the windows</div>
-		</div>
-		<div class="form-item disable">
-			<h3><label for="endToEndDelay">End to End Delay</label></h3>
-			<input type="range" value="5000" min="1000" max="20000" step="500" id="endToEndDelay" onchange="contr.setEndToEndDelay(); $('#endToEndDelay2').attr('value', this.value);" />
-			<input type="text" value="5000" min="1000" max="20000" step="500" id="endToEndDelay2" disabled="disabled" />
-			<div class="description">time a packet takes from one station to the other</div>
-		</div>
-		<div class="form-item disable">
-			<h3><label for="timeout">Timeout</label></h3>
-			<input type="range" value="11000" min="1000" max="30000" step="500" id="timeout" onchange="contr.setTimeout(this); $('#timeout2').attr('value', this.value);" />
-			<input type="text" value="11000" min="1000" max="30000" step="500" id="timeout2" disabled="disabled" />
-			<div class="description"></div>
-		</div>
-		
-		<div class="form-item disable">
-			<h3><label for="">Scroll Mode</label></h3>
-			<select onchange="typewriter = (this.selectedIndex == 0);">
-				<option>Typewriter style</option>
-				<option>Fixed Sender Windo</option>
-			</select>
-			<div class="description">change the style the window scrolls</div>
-		</div>
-		
-		<div class="form-item">
-			<h3><label for="">No. of Packets Emited per Minute</label></h3>
-			<input type="range" value="60" min="1" max="120" step="1" id="pkgPerMin" onchange="contr.setPkgPerMin(this); $('#pkgPerMin2').attr('value', this.value);" /> 
-			<input type="text" value="60" min="1" max="120" step="1" id="pkgPerMin2" disabled="disabled" />
-			<div class="description">the number of packets the upper layer tries to send per minute</div>
-		</div>
-		<div class="form-item">
-			<h3><label for="">Automatic Emission of Packets</label></h3>
-			<input type="button" id="start" onclick="contr.startStop();" value="start" />
-			<div class="description">starts or stops the automatic emission of packets by the upper layer</div>
-		</div>
-	</form>
-	<div id="svg" class="simulation" style="width:65%; margin:auto">
-		<div id="root">
-		</div>
+	<div class="col-md-12">
+		<form class="config">
+			<h2>CONFIGURATION</h2>
+			<div class="form-item disable">
+				<h3>Protocol</h3>
+					<label><input id="method-0" type="radio" value="gbn" name="method" onchange="contr.setMethod();" checked="checked" /> Go back N</label>
+					<label><input id="method-1" type="radio" value="sr" name="method" onchange="contr.setMethod();" /> Selective Repeat</label>
+				<div class="description">choosing a new protocol restarts the simulation</div>
+			</div>
+			<div class="form-item disable">
+				<h3><label for="senderN">Window Size</label></h3>
+				<input type="range" name="senderN" value="5" min="1" max="10" step="1" id="senderN" onchange="contr.setSenderN(this); $('#senderN2').attr('value', this.value);" />
+				<input type="text" value="5" min="1" max="10" step="1" id="senderN2" onchange="contr.setSenderN(this);" disabled="disabled" />
+				<div class="description">sets the window size for the windows</div>
+			</div>
+			<div class="form-item disable">
+				<h3><label for="endToEndDelay">End to End Delay</label></h3>
+				<input type="range" value="5000" min="1000" max="20000" step="500" id="endToEndDelay" onchange="contr.setEndToEndDelay(); $('#endToEndDelay2').attr('value', this.value);" />
+				<input type="text" value="5000" min="1000" max="20000" step="500" id="endToEndDelay2" disabled="disabled" />
+				<div class="description">time a packet takes from one station to the other</div>
+			</div>
+			<div class="form-item disable">
+				<h3><label for="timeout">Timeout</label></h3>
+				<input type="range" value="11000" min="1000" max="30000" step="500" id="timeout" onchange="contr.setTimeout(this); $('#timeout2').attr('value', this.value);" />
+				<input type="text" value="11000" min="1000" max="30000" step="500" id="timeout2" disabled="disabled" />
+				<div class="description"></div>
+			</div>
+			
+			<div class="form-item disable">
+				<h3><label for="">Scroll Mode</label></h3>
+				<select onchange="typewriter = (this.selectedIndex == 0);">
+					<option>Typewriter style</option>
+					<option>Fixed Sender Windo</option>
+				</select>
+				<div class="description">change the style the window scrolls</div>
+			</div>
+			
+			<div class="form-item">
+				<h3><label for="">No. of Packets Emited per Minute</label></h3>
+				<input type="range" value="60" min="1" max="120" step="1" id="pkgPerMin" onchange="contr.setPkgPerMin(this); $('#pkgPerMin2').attr('value', this.value);" /> 
+				<input type="text" value="60" min="1" max="120" step="1" id="pkgPerMin2" disabled="disabled" />
+				<div class="description">the number of packets the upper layer tries to send per minute</div>
+			</div>
+			<div class="form-item">
+				<h3><label for="">Automatic Emission of Packets</label></h3>
+				<input type="button" id="start" onclick="contr.startStop();" value="start" />
+				<div class="description">starts or stops the automatic emission of packets by the upper layer</div>
+			</div>
+		</form>
 	</div>
-	<div class="legend">
-		<h2>LEGEND</h2>
-		<table>
-			<tr>
-				<td><div class="dscPkg" style="background-color: white;">&nbsp;&nbsp;</div></td>
-				<td>No data received yet</td>
-			</tr>
-			<tr>
-				<td><div class="dscPkg" style="background-color: #6A1B9A;">&nbsp;&nbsp;</div></td>
-				<td>Data buffered (ready to send, delivered or sent but no ack received yet)</td>
-			</tr>
-			<tr>
-				<td><div class="dscPkg" style="background-color: green;">&nbsp;&nbsp;</div></td>
-				<td>Acknowledgement</td>
-			</tr>
-			<tr>
-				<td><div class="dscPkg" style="background-color: #EA80FC;">&nbsp;&nbsp;</div></td>
-				<td>Transmission confirmed</td>
-			</tr>
-			<tr>
-				<td><div class="dscPkg" style="background-color: #01579B;">&nbsp;&nbsp;</div></td>
-				<td>Data has been delivered to upper network layer</td>
-			</tr>
-		</table>
+	<div class="container-fluid ">
+		<div id="svg" class="simulation col-md-6" style="width:33%;float: right;">
+			<div id="root">
+			</div>
+		</div>
+		<div class="legend col-md-3">
+			<h2>LEGEND</h2>
+			<table>
+				<tr>
+					<td><div class="dscPkg" style="background-color: white;">&nbsp;&nbsp;</div></td>
+					<td>No data received yet</td>
+				</tr>
+				<tr>
+					<td><div class="dscPkg" style="background-color: #6A1B9A;">&nbsp;&nbsp;</div></td>
+					<td>Data buffered (ready to send, delivered or sent but no ack received yet)</td>
+				</tr>
+				<tr>
+					<td><div class="dscPkg" style="background-color: green;">&nbsp;&nbsp;</div></td>
+					<td>Acknowledgement</td>
+				</tr>
+				<tr>
+					<td><div class="dscPkg" style="background-color: #EA80FC;">&nbsp;&nbsp;</div></td>
+					<td>Transmission confirmed</td>
+				</tr>
+				<tr>
+					<td><div class="dscPkg" style="background-color: #01579B;">&nbsp;&nbsp;</div></td>
+					<td>Data has been delivered to upper network layer</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

@@ -176,7 +176,7 @@ th{
 }
 
 .config .form-item.disable.disabled{
-	background-color: silver;
+	
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -222,10 +222,12 @@ th{
 }
 .legend{
 	float: left;
+	width: 50% !important;
 }
 
 .legend table, .legend td, .legend th{
 	border-style: none;
+	padding:2px;
 }
 
 
@@ -252,4 +254,5 @@ input[type=range]::-webkit-slider-thumb{
     transform: rotate(-90deg) scale(-1, 1);
     -moz-transform: scale(-1, 1);
 	-o-transform: scale(-1, 1);
+	margin-right: 2%;
 }
