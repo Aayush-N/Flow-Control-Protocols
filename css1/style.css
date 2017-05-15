@@ -217,15 +217,9 @@ th{
 	margin-top: 0.4em;
 	margin-bottom: 0.75em;
 }
-
 .config input{
 	font-size: 1em;
 }
-
-
-
-/* legend */
-
 .legend{
 	float: left;
 }
@@ -234,15 +228,13 @@ th{
 	border-style: none;
 }
 
-/* simulation */
+
 .simulation{
-	padding: 1em 0 1em 0;
 	border: 1px solid black;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background-color: #fff;
 }
 
-/* input range fix for android stock browser (http://tiffanybbrown.com/2012/02/07/input-typerange-and-androids-stock-browser/)*/
 input[type=range]{
     background: #D8D8D8;
     height: auto;
@@ -253,4 +245,11 @@ input[type=range]::-webkit-slider-thumb{
     height: 30px;
     width: 30px;
     border-radius: 30px;
+}
+#svg{
+	-webkit-transform: rotate(-90deg) scale(-1, 1);
+    -ms-transform: rotate(-90deg) scale(-1, 1);
+    transform: rotate(-90deg) scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
 }
