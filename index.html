@@ -13,10 +13,9 @@
 		#svg{
 			cursor: crosshair;
 			position: relative;
-			width: 800px;
 			height: 400px;
 			border: 1px solid black;
-			overflow: hidden;
+			overflow: scroll;
 			
 			
 		}
@@ -938,19 +937,21 @@ function Display(windowN, hasWindowReceiver){
 <body onload="init();" class="mobile">
 	<h1><center><font face="Chalkduster">Selective Repeat | Go Back N</font></center></h1>
 	<div class="col-md-12">
+		<div><h2 class="config" style="text-align: center; padding: 3px;">CONFIGURATION</h2></div>
 		<form class="config">
-			<h2>CONFIGURATION</h2>
-			<div class="form-item disable">
-				<h3>Protocol</h3>
-					<label><input id="method-0" type="radio" value="gbn" name="method" onchange="contr.setMethod();" checked="checked" /> Go back N</label>
-					<label><input id="method-1" type="radio" value="sr" name="method" onchange="contr.setMethod();" /> Selective Repeat</label>
-				<div class="description">choosing a new protocol restarts the simulation</div>
-			</div>
-			<div class="form-item disable">
-				<h3><label for="senderN">Window Size</label></h3>
-				<input type="range" name="senderN" value="5" min="1" max="10" step="1" id="senderN" onchange="contr.setSenderN(this); $('#senderN2').attr('value', this.value);" />
-				<input type="text" value="5" min="1" max="10" step="1" id="senderN2" onchange="contr.setSenderN(this);" disabled="disabled" />
-				<div class="description">sets the window size for the windows</div>
+			<div>
+				<div class="form-item disable">
+					<h3>Protocol</h3>
+						<label><input id="method-0" type="radio" value="gbn" name="method" onchange="contr.setMethod();" checked="checked" /> Go back N</label>
+						<label><input id="method-1" type="radio" value="sr" name="method" onchange="contr.setMethod();" /> Selective Repeat</label>
+					<div class="description">choosing a new protocol restarts the simulation</div>
+				</div>
+				<div class="form-item disable">
+					<h3><label for="senderN">Window Size</label></h3>
+					<input type="range" name="senderN" value="5" min="1" max="10" step="1" id="senderN" onchange="contr.setSenderN(this); $('#senderN2').attr('value', this.value);" />
+					<input type="text" value="5" min="1" max="10" step="1" id="senderN2" onchange="contr.setSenderN(this);" disabled="disabled" />
+					<div class="description">sets the window size for the windows</div>
+				</div>
 			</div>
 			<div class="form-item disable">
 				<h3><label for="endToEndDelay">End to End Delay</label></h3>
